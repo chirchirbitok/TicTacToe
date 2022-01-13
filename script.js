@@ -18,7 +18,7 @@ startGame();
 function startGame(){
      document.querySelector(".endgame").style.display = "none";
      origBoard = Array.from(Array(9).keys());
-     for (var i =0; i<cells.length ; i++){
+     for (var i = 0; i < cells.length ; i++){
          cells[i].innerText = '';
          cells[i].style.removeProperty('background-color');
          cells[i].addEventListener('click', turnClick, false);
@@ -26,6 +26,7 @@ function startGame(){
 }
 
 function turnClick(square){
+    console.log(square.target.id);
     if (typeof origBoard[square.target.id] == 'number'){
         turn(square.target.id, huPlayer);
         if (!checkTie()) turn(bestSpot(), aiPlayer);
